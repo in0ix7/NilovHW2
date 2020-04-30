@@ -1,0 +1,35 @@
+------------------------
+100 elementov
+Selection Sort 	423
+Bubble Sort 	2049
+Insertion Sort 	2446
+------------------------
+
+------------------------
+100 elementov
+Selection Sort 	5147
+Bubble Sort 	251492
+Insertion Sort 	243007
+------------------------
+
+------------------------
+100 elementov
+Selection Sort 	25908
+Bubble Sort 	6226047
+Insertion Sort 	6168166
+------------------------
+
+------------------------
+100 elementov
+Selection Sort 	53417
+Bubble Sort 	25090931
+Insertion Sort 	24700685
+------------------------
+
+------------------------
+100 elementov
+Selection Sort 	267834
+Bubble Sort 	618986031
+Insertion Sort 	619633931
+------------------------
+

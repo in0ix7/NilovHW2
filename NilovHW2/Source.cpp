@@ -1,20 +1,107 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <stdlib.h>
 #include <string>
 #include <fstream>
 #include <ctime>
 #include <time.h>
-#include <iomanip>  // чтобы работал precision
-#include <math.h>  // функции модуля числа, синуса, косинуса и прочее здесь
+#include <iomanip>  // С‡С‚РѕР±С‹ СЂР°Р±РѕС‚Р°Р» precision
+#include <math.h>  // С„СѓРЅРєС†РёРё РјРѕРґСѓР»СЏ С‡РёСЃР»Р°, СЃРёРЅСѓСЃР°, РєРѕСЃРёРЅСѓСЃР° Рё РїСЂРѕС‡РµРµ Р·РґРµСЃСЊ
 #include <cmath>  
-#include <string>  // для считывания строк
+#include <string>  // РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ СЃС‚СЂРѕРє
 
-using namespace std; // чтобы запомнить, какие команды и типы работают через std
+using namespace std; // С‡С‚РѕР±С‹ Р·Р°РїРѕРјРЅРёС‚СЊ, РєР°РєРёРµ РєРѕРјР°РЅРґС‹ Рё С‚РёРїС‹ СЂР°Р±РѕС‚Р°СЋС‚ С‡РµСЂРµР· std
 using std::cout;
 using std::cin;
 using std::endl;
 
-//Задача 1
+long int counterB = 0;
+long int counterS = 0;
+long int counterI = 0;
+
+//РґР»СЏ Р·Р°РґР°РЅРёСЏ 2
+/*
+void selectionSort(float data[], int len) {
+	int j = 0;
+	float tmp = 0;
+
+
+	for (int i = 0; i < len; i++) {
+		// РёС‰РµРј РЅРѕРјРµСЂ РЅР°РёРјРµРЅСЊС€РµРіРѕ СЌР»РµРјРµРЅС‚Р° СЃСЂРµРґРё СЌР»РµРјРµРЅС‚РѕРІ РѕС‚ i-РіРѕ РґРѕ РєРѕРЅС†Р°
+		j = i;
+
+
+		for (int k = i; k < len; k++) {
+			if (data[j] > data[k]) {
+				j = k;
+				counterS++;
+			}
+		}
+		// РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё РЅР°РёР±РѕР»СЊС€РёР№ СЌР»РµРјРµРЅС‚ Рё С‚РµРєСѓС‰РёР№
+		tmp = data[i];
+		data[i] = data[j];
+		data[j] = tmp;
+		counterS++;
+	}
+};
+void insertionSort(float data[], int len) {
+	float key = 0;
+	int j = 0;
+	// РїСЂРѕС…РѕРґ РїРѕ РјР°СЃСЃРёРІСѓ
+	for (int i = 1; i < len; i++) {
+		key = data[i];  // РєР»СЋС‡РµРІРѕР№/С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚
+		j = i - 1;
+		// РїРµСЂРµСЃС‚Р°РЅРѕРІРєР° СЌР»РµРјРµРЅС‚Р° РЅР° РЅСѓР¶РЅРѕРµ РјРµСЃС‚Рѕ
+		while (j >= 0 && data[j] > key) {
+			data[j + 1] = data[j];
+			j = j - 1;
+			data[j + 1] = key;
+			counterI++;
+		}
+	}
+}
+void bubbleSort(float data[], int len) {
+	float tmp = 0;
+	// РёРґС‘Рј РїРѕ РјР°СЃСЃРёРІСѓ
+	for (int i = 0; i < len; i++) {
+		// РґРµР»Р°РµРј РїСЂРѕРІРµСЂРєРё РІ РѕСЃС‚Р°РІС€РµР№СЃСЏ С‡Р°СЃС‚Рё РјР°СЃСЃРёРІР°
+		for (int j = len - 1; j >= i + 1; j--) {
+			if (data[j] < data[j - 1]) {  // СЃСЂР°РІРЅРёРІР°РµРј СЃРѕСЃРµРґРЅРёРµ СЌР»РµРјРµРЅС‚С‹
+				// РґРµР»Р°РµРј РїРµСЂРµСЃС‚Р°РЅРѕРІРєСѓ
+				tmp = data[j];
+				data[j] = data[j - 1];
+				data[j - 1] = tmp;
+				counterB++;
+			}
+		}
+	}
+}
+void s100();
+void s1k();
+void s5k();
+void s10k();
+void s50k();
+fstream f;
+*/
+//РґР»СЏ Р·Р°РґР°РЅРёСЏ 5 
+struct Train {
+
+	string brand;
+	int NumberOfPassengers;
+	float Speed;
+};
+void bubbleSortNumberOfPassengers(Train Trains[], int Size);
+void bubbleSortSpeed(Train Trains[], int Size);
+void showTrain(const Train p);
+void randString(string& str);
+void Cout(Train Trains[], int Size);
+void File(Train Trains[], int Size);
+
+
+
+
+
+
+//Р—Р°РґР°С‡Р° 1
 /*
 int main(){
 cout << "+--------------------+" << endl
@@ -26,46 +113,46 @@ cout << "+--------------------+" << endl
 
 	cout << "Task 1 (g) \n \n";
 
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
+	setlocale(LC_ALL, "Rus"); // РІРєР»СЋС‡Р°РµРј СЂСѓСЃСЃРєРёР№ СЏР·С‹РєР°
 
 	srand(time(NULL));
 
-	const int size = 41;
+	const int size = 60;
 	int arr[size];
 
 	bool athere;
-
-	for (int i = 0; i < size;) 
+	
+	//РіРµРЅРµСЂР°С‚РѕСЂ СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР» 
+	
+	for (int i = 0; i < size;)
 	{
 		athere = false;
-		int newValue = (rand() % 41) - 20;
+		int newValue = (rand() % 60) - 30;
 
-		for (int j = 0; j < i ;j++) 
+		for (int j = 0; j < i; j++)
 		{
-			if (arr[j]==newValue)
+			if (arr[j] == newValue)
 			{
 				athere = true;
 				break;
 			}
 		}
 
-		if(!athere)
+		if (!athere)
 		{
 			arr[i] = newValue;
 			i++;
 		}
 
-		arr[i] = (rand() % 41) - 20;
+		arr[i] = (rand() % 60) - 30;
 
-	}
+	};
 
-
-
-
-
+	//РІС‹РІРѕРґ РјР°СЃСЃРёРІР° 
+	
 	for (int i = 0; i < size; i++) 
 	{
-		cout << arr[i] << endl;
+		cout << arr[i] << " ";
 
 
 
@@ -75,53 +162,253 @@ cout << "+--------------------+" << endl
 }
 */
 
-//Задача 2g
+
+//Р—Р°РґР°С‡Р° 2(РІСЃРµ РІРёРґС‹ СЃРѕСЂС‚РёСЂРѕРІРєРё)
 /*
-int main(){
-	cout << "+--------------------+" << endl
-		<< "|          AiP       |" << endl
-		<< "| Homework 21/03/2020|" << endl
-		<< "|     Kozevnikov Ilya|" << endl
-		<< "|                 #7 |" << endl
-		<< "+--------------------+" << endl;
-
-	cout << "Task 2 (g) \n \n";
-
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
-	cout << "Заполните массив:" << endl;
-	int arr[10];
-	int sum = 0;
-	// Заполняем массив с 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << "[" << i + 1 << "]" << ": ";
-		cin >> arr[i];
-
-		if (arr[i] < 5)
-		{
-			sum += arr[i];
-		}
-	}
-
-	// И выводим заполненный массив.
-	cout << "\nВаш массив: ";
-
+int main() {
 	
-	for (int i = 0; i < 10; i++) 
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
+		cout << "+--------------------+" << endl
+			<< "|          AiP       |" << endl
+			<< "| Homework 21/03/2020|" << endl
+			<< "|     Kozevnikov Ilya|" << endl
+			<< "|                 #7 |" << endl
+			<< "+--------------------+" << endl;
 
-	cout << "\nСумма чисел меньших 5:" << sum;
-	cout << endl;
+		cout << "Task 2  \n \n";
 
+		setlocale(LC_ALL, "Rus"); // РІРєР»СЋС‡Р°РµРј СЂСѓСЃСЃРєРёР№ СЏР·С‹РєР°
+	f.open("Zadanie_2_Oll.txt", ios::out | ios::trunc);
+	cout << "РќР°С‡Р°Р»Рѕ СЃРѕСЂС‚РёСЂРѕРІРєРё!" << endl << endl;
+	srand(199951595232545454);
+	s100();
+	s1k();
+	s5k();
+	s10k();
+	s50k();
 	return 0;
+	f.close();
+}
+
+void s100()
+{
+	const int n = 100;
+	float data[n];
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	insertionSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+	bubbleSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	selectionSort(data, n);
+	cout << "------------------------" << endl;
+	cout << "100 elementov" << endl;
+	cout << "Selection Sort \t" << counterS << endl;
+	cout << "Bubble Sort \t" << counterB << endl;
+	cout << "Insertion Sort \t" << counterI << endl;
+	cout << "------------------------" << endl << endl;
+
+	f << "------------------------" << endl;
+	f << "100 elementov" << endl;
+	f << "Selection Sort \t" << counterS << endl;
+	f << "Bubble Sort \t" << counterB << endl;
+	f << "Insertion Sort \t" << counterI << endl;
+	f << "------------------------" << endl << endl;
+
+	counterS = 0;
+	counterB = 0;
+	counterI = 0;
+
+}
+
+void s1k()
+{
+	const int n = 1000;
+	float data[n];
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	insertionSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+	bubbleSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	selectionSort(data, n);
+
+	cout << "------------------------" << endl;
+	cout << "1000 elementov" << endl;
+	cout << "Selection Sort \t" << counterS << endl;
+	cout << "Bubble Sort \t" << counterB << endl;
+	cout << "Insertion Sort \t" << counterI << endl;
+	cout << "------------------------" << endl << endl;
+
+	f << "------------------------" << endl;
+	f << "100 elementov" << endl;
+	f << "Selection Sort \t" << counterS << endl;
+	f << "Bubble Sort \t" << counterB << endl;
+	f << "Insertion Sort \t" << counterI << endl;
+	f << "------------------------" << endl << endl;
+
+	counterS = 0;
+	counterB = 0;
+	counterI = 0;
+}
+
+void s5k() {
+	const int n = 5000;
+	float data[n];
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	insertionSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+	bubbleSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	selectionSort(data, n);
+
+	cout << "------------------------" << endl;
+	cout << "5000 elementov" << endl;
+	cout << "Selection Sort \t" << counterS << endl;
+	cout << "Bubble Sort \t" << counterB << endl;
+	cout << "Insertion Sort \t" << counterI << endl;
+	cout << "------------------------" << endl << endl;
+
+	f << "------------------------" << endl;
+	f << "100 elementov" << endl;
+	f << "Selection Sort \t" << counterS << endl;
+	f << "Bubble Sort \t" << counterB << endl;
+	f << "Insertion Sort \t" << counterI << endl;
+	f << "------------------------" << endl << endl;
+
+
+
+	counterS = 0;
+	counterB = 0;
+	counterI = 0;
+}
+
+void s10k() {
+	const int n = 10000;
+	float data[n];
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	insertionSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+	bubbleSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	selectionSort(data, n);
+	cout << "------------------------" << endl;
+	cout << "10000 elementov" << endl;
+	cout << "Selection Sort \t" << counterS << endl;
+	cout << "Bubble Sort \t" << counterB << endl;
+	cout << "Insertion Sort \t" << counterI << endl;
+	cout << "------------------------" << endl << endl;
+
+	f << "------------------------" << endl;
+	f << "100 elementov" << endl;
+	f << "Selection Sort \t" << counterS << endl;
+	f << "Bubble Sort \t" << counterB << endl;
+	f << "Insertion Sort \t" << counterI << endl;
+	f << "------------------------" << endl << endl;
+
+	counterS = 0;
+	counterB = 0;
+	counterI = 0;
+}
+
+void s50k() {
+	const int n = 50000;
+	float  data[n];
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	insertionSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+	bubbleSort(data, n);
+
+	for (int i = 0; i < n; i++) {
+		data[i] = rand() % 120 - 70;
+
+	}
+
+	selectionSort(data, n);
+
+	f << "------------------------" << endl;
+	f << "100 elementov" << endl;
+	f << "Selection Sort \t" << counterS << endl;
+	f << "Bubble Sort \t" << counterB << endl;
+	f << "Insertion Sort \t" << counterI << endl;
+	f << "------------------------" << endl << endl;
+
+	cout << "------------------------" << endl;
+	cout << "50000 elementov" << endl;
+	cout << "Selection Sort \t" << counterS << endl;
+	cout << "Bubble Sort \t" << counterB << endl;
+	cout << "Insertion Sort \t" << counterI << endl;
+	cout << "------------------------" << endl << endl;
+
+	counterS = 0;
+	counterB = 0;
+	counterI = 0;
 }
 */
 
-//Задача 2a
-/*
+//Р—Р°РґР°С‡Р° 5
 int main() {
 	cout << "+--------------------+" << endl
 		<< "|          AiP       |" << endl
@@ -130,312 +417,117 @@ int main() {
 		<< "|                 #7 |" << endl
 		<< "+--------------------+" << endl;
 
-	cout << "Task 2 (a) \n \n";
+	cout << "Task 5 \n \n";
 
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
-	cout << "Заполните массив:" << endl;
-	int arr[10];
-	int sum = 0;
-	// Заполняем массив с
-	for (int i = 0; i < 10; i++)
+	int const Size = 15;
+	Train Trains[Size];
+	cout << "The brand of Train\t" << "Number Of Passengers\t" << "Max speed\n";
+	for (int i = 0; i < Size; i++)
 	{
-		cout << "[" << i + 1 << "]" << ": ";
-		cin >> arr[i];
+		Trains[i].NumberOfPassengers = 80 + rand() % 150;
+		Trains[i].Speed = 725 + rand() % 250;
+		randString(Trains[i].brand);
 
-		if (arr[i] > 5)
-		{
-			sum += arr[i];
-		}
+		showTrain(Trains[i]);
+
 	}
 
-	// И выводим заполненный массив.
-	cout << "\nВаш массив: ";
-
-
-	for (int i = 0; i < 10; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-
-	cout << "\nСумма чисел меньших 5: " << sum;
-	cout << endl;
+	Cout(Trains, Size);
+	File(Trains, Size);
 
 	return 0;
 }
-*/
 
-//Задача 4
-/*
-int main() {
-	cout << "+--------------------+" << endl
-		<< "|          AiP       |" << endl
-		<< "| Homework 21/03/2020|" << endl
-		<< "|     Kozevnikov Ilya|" << endl
-		<< "|                 #7 |" << endl
-		<< "+--------------------+" << endl;
-
-	cout << "Task 4 \n \n";
-
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
+void randString(string& str) {
+	static  const char alphabet[] =
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		"abcdefghijklmnopqrstuvwxyz";
+	str = "     ";
 
 
-	cout << "Заполните массив:" << endl;
-	int arr[10];
-	int sum1 = 1;
-	int sum2 = 1;
-	// Заполняем массив с 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << "[" << i + 1 << "]" << ": ";
-		cin >> arr[i];
-
-		if (arr[i] <=0)
-		{
-			sum1 *= arr[i];
-		}
-		else
-		{
-			sum2 *= arr[i];
-		}
+	for (int i = 0; i < str.length(); i++) {
+		int r = rand() % (sizeof(alphabet) - 1);
+		str[i] = alphabet[r];
 	}
-
-	// И выводим заполненный массив.
-	cout << "\nВаш массив: ";
-
-
-	for (int i = 0; i < 10; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-
-	cout << "\nПроизведение положительных чисел :" << sum1;
-	cout << endl;
-
-	cout << "\nПроизведение отрицательных чисел :" << sum2;
-	cout << endl;
-
-	return 0;
-}*/
-
-//Задача 5
-/*
-int main(){
-	cout << "+--------------------+" << endl
-		<< "|          AiP       |" << endl
-		<< "| Homework 21/03/2020|" << endl
-		<< "|     Kozevnikov Ilya|" << endl
-		<< "|                 #7 |" << endl
-		<< "+--------------------+" << endl;
-
-	cout << "Task 5 (3) \n \n";
-
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
-	
-
-	cout << "Заполните массив:" << endl;
-	int arr[10];
-	int sum1 = 0;
-	int sum2 = 0;
-	// Заполняем массив с 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << "[" << i + 1 << "]" << ": ";
-		cin >> arr[i];
-
-		if (arr[i]%2)
-		{
-			sum1 += arr[i];
-		}
-		else
-		{
-			sum2 += arr[i];
-		}
-	}
-
-	// И выводим заполненный массив.
-	cout << "\nВаш массив: ";
-
-
-	for (int i = 0; i < 10; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-
-	cout << "\nСумма четных чисел :" << sum1;
-	cout << endl;
-
-	cout << "\nСумма нечетных чисел :" << sum2;
-	cout << endl;
-
-	return 0;
+	str[str.length()] = 0;
 }
-*/
 
-//Задача 8
-/*
-int main() {
-	cout << "+--------------------+" << endl
-		<< "|          AiP       |" << endl
-		<< "| Homework 21/03/2020|" << endl
-		<< "|     Kozevnikov Ilya|" << endl
-		<< "|                 #7 |" << endl
-		<< "+--------------------+" << endl;
+void showTrain(const Train p) {
 
-	cout << "Task 8 \n \n";
-
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
-
-
-	cout << "Заполните массив:" << endl;
-	int arr[10];
-	int sum1 = 0;
-	int sum2 = 0;
-	// Заполняем массив с 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << "[" << i + 1 << "]" << ": ";
-		cin >> arr[i];
-
-		if (arr[i] < 0)
-		{
-			sum1 += 1;
-		};
-		if (arr[i]> 0)
-		{
-			sum2 += 1;
-		}
-	}
-
-	// И выводим заполненный массив.
-	cout << "\nВаш массив: ";
-
-
-	for (int i = 0; i < 10; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-
-	cout << "\nКол-во положительных чисел :" << sum1;
-	cout << endl;
-
-	cout << "\nКол-во отрицательных чисел :" << sum2;
-	cout << endl;
-
-	return 0;
+	cout << "\t" << p.brand << " \t\t\t"
+		<< p.NumberOfPassengers << " \t\t"
+		<< "   " << p.Speed << "  \n ";
 }
-*/
 
-//Задача 10
-/*
-int main() {
-	cout << "+--------------------+" << endl
-		<< "|          AiP       |" << endl
-		<< "| Homework 21/03/2020|" << endl
-		<< "|     Kozevnikov Ilya|" << endl
-		<< "|                 #7 |" << endl
-		<< "+--------------------+" << endl;
-
-	cout << "Task 10 \n \n";
-
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
-
-	int stre;
-	cout << "Введите переменную: ";
-		cin >> stre;
-	cout << endl;
-
-	cout << "Заполните массив:" << endl;
-	int arr[10];
-	int sum1 = 0;
-	int sum2 = 0;
-	
-	// Заполняем массив с
-	for (int i = 0; i < 10; i++)
-	{
-		cout << "[" << i + 1 << "]" << ": ";
-		cin >> arr[i];
-
-		if (arr[i] > stre)
-		{
-			sum1 += 1;
-		}
-	}
-
-	// И выводим заполненный массив.
-	cout << "\nВаш массив: ";
-
-
-	for (int i = 0; i < 10; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-
-	cout << "\nКол-во чисел больше заданной переменной: " << sum1;
-	cout << endl;
-
-	return 0;
-}
-*/
-
-//Задача 14
-
-int main() {
-	cout << "+--------------------+" << endl
-		<< "|          AiP       |" << endl
-		<< "| Homework 21/03/2020|" << endl
-		<< "|     Kozevnikov Ilya|" << endl
-		<< "|                 #7 |" << endl
-		<< "+--------------------+" << endl;
-
-	cout << "Task 14 \n \n";
-
-	setlocale(LC_ALL, "Rus"); // включаем русский языка
-
-	const int n = 70;
-	int arr[n];
-
-
-	srand(time(NULL)); // инициализация ГСЧ
-	
-
-	// заполнение массива случайными числами от 0 до 56-1
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 140;
-
-
-	}
-
-	for (int i = 0; i < n; i++)
-		std::cout << arr[i] << ", ";
-
-
-	std::cout << std::endl;
-
-
-	int max_number = arr[0];  // считаем что первый элемент массива - самый большой
-	for (int i = 1; i < n; i++)  // поиск начинаем со второго элемента
-		if (max_number < arr[i]) // если нашли больше
-		{  
-			if (!(arr[i] % 2))
-			{
-				max_number = arr[i];
+void bubbleSortSpeed(Train Trains[], int Size) {
+	int j = 0;
+	Train tmp;
+	//  ГЁГ¤ВёГ¬ ГЇГ® Г¬Г Г±Г±ГЁГўГі
+	for (int i = 0; i < Size; i++) {
+		//  Г¤ГҐГ«Г ГҐГ¬ ГЇГ°Г®ГўГҐГ°ГЄГЁ Гў Г®Г±ГІГ ГўГёГҐГ©Г±Гї Г·Г Г±ГІГЁ Г¬Г Г±Г±ГЁГўГ 
+		for (int j = Size - 1; j >= i + 1; j--) {
+			if (Trains[j].Speed > Trains[i].Speed) {// Г±Г°Г ГўГ­ГЁГўГ ГҐГ¬ Г±Г®Г±ГҐГ¤Г­ГЁГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ»
+				// Г¤ГҐГ«Г ГҐГ¬ ГЇГҐГ°ГҐГ±ГІГ Г­Г®ГўГЄГі
+				tmp = Trains[i];
+				Trains[i] = Trains[j];
+				Trains[j] = tmp;
 			}
+		}
+	}
+}
 
-		}  // то обновляемся
+void bubbleSortNumberOfPassengers(Train Trains[], int Size) {
+	int j = 0;
+	Train tmp;
+	//  ГЁГ¤ВёГ¬ ГЇГ® Г¬Г Г±Г±ГЁГўГі
+	for (int i = 0; i < Size; i++) {
+		//  Г¤ГҐГ«Г ГҐГ¬ ГЇГ°Г®ГўГҐГ°ГЄГЁ Гў Г®Г±ГІГ ГўГёГҐГ©Г±Гї Г·Г Г±ГІГЁ Г¬Г Г±Г±ГЁГўГ 
+		for (int j = Size - 1; j >= i + 1; j--) {
+			if (Trains[j].NumberOfPassengers > Trains[i].NumberOfPassengers) {// Г±Г°Г ГўГ­ГЁГўГ ГҐГ¬ Г±Г®Г±ГҐГ¤Г­ГЁГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ»
+				// Г¤ГҐГ«Г ГҐГ¬ ГЇГҐГ°ГҐГ±ГІГ Г­Г®ГўГЄГі
+				tmp = Trains[i];
+				Trains[i] = Trains[j];
+				Trains[j] = tmp;
+			}
+		}
+	}
+}
 
+void Cout(Train Trains[], int Size) {
+	cout << endl << " Sorted Max Speed" << endl << endl;
+	cout << "The brand of Train\t" << "Number Of Passengers\t" << "Max speed\n";
+	bubbleSortSpeed(Trains, Size);
 
-	std::cout << "Maximum of array is " << max_number;
+	for (int i = 0; i < Size; i++)
+		showTrain(Trains[i]);
 
+	cout << endl << " Sorted Number Of Passengers" << endl << endl;
+	cout << "The brand of Train\t" << "Number Of Passengers\t" << "Max speed\n";
+	bubbleSortNumberOfPassengers(Trains, Size);
 
-	std::cin.get();
-	std::cin.get();
+	for (int i = 0; i < Size; i++)
+		showTrain(Trains[i]);
+}
 
+void File(Train Trains[], int Size) {
+	fstream f;
+	f.open("data.txt", ios::out | ios::trunc);
+	f << endl << "                        Sorted Max Speed" << endl << endl;
+	f << "The brand of Train\t" << "Number Of Passengers\t" << "Max speed\n";
+	bubbleSortSpeed(Trains, Size);
 
-	return 0;
+	for (int i = 0; i < Size; i++)
+		f << "\t" << Trains[i].brand << "\t"
+		<< Trains[i].NumberOfPassengers << "\t"
+		<< "   " << Trains[i].Speed << endl;
+
+	f << endl << " Sorted Number Of Passengers" << endl << endl;
+	f << "The brand of Train\t" << "Number Of Passengers\t" << "Max speed\n";
+	bubbleSortNumberOfPassengers(Trains, Size);
+
+	for (int i = 0; i < Size; i++)
+		f << "\t" << Trains[i].brand << " \t"
+		<< Trains[i].NumberOfPassengers << " \t"
+		<< "   " << Trains[i].Speed <<"  \n " ;
+	f.close();
 }
