@@ -244,7 +244,7 @@ int main() {
 
 	cout << "+--------------------+" << endl
 		<< "|          AiP       |" << endl
-		<< "| Homework   12.05.20|" << endl
+		<< "| Homework   21.05.20|" << endl
 		<< "|     Kozevnikov Ilya|" << endl
 		<< "|                 #7 |" << endl
 		<< "+--------------------+" << endl;
